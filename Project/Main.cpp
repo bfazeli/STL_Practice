@@ -29,3 +29,19 @@ int main()
 }
 
 // Definition function1
+void function1(const map<char, int>& m, set<int>& s, vector<int>& v)
+{
+	map<char, int>::const_reverse_iterator it = m.crbegin();
+
+	for (it; it != m.crend(); ++it)
+		s.insert(it->second);
+
+	set<int>::iterator setIterator = s.begin();
+
+	for (setIterator; setIterator != s.end(); ++setIterator)
+		v.push_back(*setIterator);
+
+	vector<int>::iterator iterVector = v.begin();
+
+	rotate(v.begin(), iterVector + 2, v.end());
+}
